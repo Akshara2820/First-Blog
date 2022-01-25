@@ -37,6 +37,9 @@
         </div>
         <strong>{{ comment.author}}</strong>
         <p>{{ comment.text|linebreaks }}</p>
+        <a class="btn btn-secondary" href="{% url 'comment_remove' pk=comment.pk %}">
+            {% include './icons/trash.svg' %}
+        </a>
     </div>
     {% endif %}
 {% empty %}
