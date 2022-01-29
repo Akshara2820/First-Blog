@@ -11,6 +11,8 @@ Need to install in your PC
 
 First we have to active our virtual environment.
 The command is : source myvenv/bin/activate
+
+
 After the run our code the command is : python3 manage.py runserver
 
 
