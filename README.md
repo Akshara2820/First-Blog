@@ -9,7 +9,7 @@ Need to install in your PC
 7. GIT
 8. Crome or any Browser 
 
-First we have to active our virtual environment.
+In the VS Code we have to active our virtual environment.
 The command is : source myvenv/bin/activate
 
 
