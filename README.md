@@ -12,4 +12,7 @@ Need to install in your PC
 First we have to active our virtual environment.
 The command is : source myvenv/bin/activate
 After the run our code the command is : python3 manage.py runserver
+
+
+
 http://127.0.0.1:8000/ :run this on crome
