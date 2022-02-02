@@ -3,7 +3,27 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Comment, Post
 from .forms import PostForm, CommentForm
+from django.shortcuts import redirect
 
+# *****************************************
+#************Example**********************
+
+# # import Http Response from django
+# from django.http import HttpResponse
+# # get datetime
+# import datetime
+#  
+# # create a function
+# def geeks_view(request):
+#     # fetch date and time
+#     now = datetime.datetime.now()
+#     # convert to string
+#     html = "Time is {}".format(now)
+#     # return response
+#     return HttpResponse(html)
+
+#*******************************************
+#********************************************
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -13,13 +33,6 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
-
-
-
-
-
-from django.shortcuts import redirect
-
 
 
 @login_required
@@ -35,8 +48,6 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
-
-
 
 
 @login_required
@@ -56,7 +67,7 @@ def post_edit(request, pk):
 
 
 # ********************************************************************
-# ******************add more to your website!************************
+# ******************add more to your website!*************************
 # ********************************************************************
 
 
@@ -81,7 +92,7 @@ def post_remove(request, pk):
     post.delete()
     return redirect('post_list')
 
-# ******************************************************
+# ***********************************************************************
 # ***********************************************************************
 
 def add_comment_to_post(request, pk):
@@ -96,6 +107,7 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
+
 
 @login_required
 def comment_approve(request, pk):
